@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GetObject : MonoBehaviour {
 	int a;
+	public GameObject Shield;
 	public GameObject inventary;
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,11 @@ public class GetObject : MonoBehaviour {
 		if (other.collider.tag=="Artefact")
 		{
 			
+		}
+		if (other.collider.tag=="AttackBall")
+		{
+			if (!Shield.active)
+			NotificationCenter.DefaultCenter.PostNotification(this, "DamageHealth2");
 		}
 	}
 

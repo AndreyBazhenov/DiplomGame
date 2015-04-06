@@ -41,6 +41,7 @@ public class AnimController : MonoBehaviour {
 	
 	void ManaEmpty1 () {
 		ManaCol = 0;
+		Debug.Log("EmptyMannnna!");
 	}
 	void ManaDanger1() {
 		ManaCol = 4;
@@ -85,7 +86,165 @@ public class AnimController : MonoBehaviour {
 		RArm = "Shield";
 	}
 
-	
+
+
+
+	void LeftActive()
+	{
+		NotificationCenter.DefaultCenter.PostNotification(this, "LeftArmActive");
+		switch (LArm)
+		{
+		case "Lball":
+			animation.Play("Magic_Attack_Left");
+			break;
+		case "LMass":
+			animation.Play("Magic_Begin_MassStasis_Left");
+			
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
+			break;
+		case "Invise":
+			animation.Play("Magic_Invisible");
+			break;
+		case "Running":
+			animation.Play("Magic_Run_Begin");
+			NotificationCenter.DefaultCenter.PostNotification(this, "FlagRunBegin");
+			break;
+		case "Jumping":
+			if (ManaCol > 5) {
+				NotificationCenter.DefaultCenter.PostNotification(this, "FlagJumpingBegin");
+				JumpFlag=1;
+			}
+			else
+			{
+				NotificationCenter.DefaultCenter.PostNotification(this, "FlagJumpingEnd");
+			}
+			break;
+		case "Shield":
+			animation.Play("Magic_Shield_Begin");
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
+			break;
+		}
+		FlagL=1;
+	}
+
+
+
+
+	void LeftNotActive()
+	{
+		switch (LArm)
+		{
+		case "LMass":
+			animation.Play("Magic_End_MassStasis_Left");
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
+			break;
+			
+		case "Running":
+			animation.Play("Magic_Run_End");
+			NotificationCenter.DefaultCenter.PostNotification(this, "FlagRunEnd");
+			runFlagR=0;
+			break;
+		case "Jumping":
+			NotificationCenter.DefaultCenter.PostNotification(this, "FlagJumpingEnd");
+			JumpFlag=0;
+			break;
+		case "Shield":
+			animation.Play("Magic_Shield_End");
+			Shield1.SetActive (false);
+			
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
+			break;
+		case "Invise":
+			NotificationCenter.DefaultCenter.PostNotification (this, "NormMaterial");
+			
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
+			MassStasisL.SetActive (false);
+			break;
+		}
+		FlagL=0;
+	}
+	void RightActive()
+	{
+		NotificationCenter.DefaultCenter.PostNotification(this, "RightArmActive");
+		Debug.Log("BeginR");
+		switch (RArm)
+		{
+		case "Rball":
+			animation.Play("Magic_Attack_Right");
+			break;
+		case "RMass":
+			animation.Play("Magic_Begin_MassStasis_Right");
+			
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
+			break;
+		case "Invise":
+			animation.Play("Magic_Invisible");
+			//NotificationCenter.DefaultCenter.PostNotification (this, "InviseMaterial");
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
+			
+			break;
+		case "Running":
+			animation.Play("Magic_Run_Begin");	
+			if (ManaCol>0)
+			{
+				NotificationCenter.DefaultCenter.PostNotification(this, "FlagRunBegin");
+				
+				runFlagR=1;
+			}
+			else
+			{
+				NotificationCenter.DefaultCenter.PostNotification(this, "FlagRunEnd");
+			}
+			break;
+		case "Jumping":
+			NotificationCenter.DefaultCenter.PostNotification(this, "FlagJumpingBegin");
+			JumpFlag=1;
+			break;
+		case "Shield":
+			animation.Play("Magic_Shield_Begin");
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");				
+			break;
+		}
+		FlagR=1;
+	}
+	void RightNotActive()
+	{
+		Debug.Log("Vikl");
+		switch (RArm)
+		{
+		case "RMass":
+			Debug.Log("ViklMass");
+			animation.Play("Magic_End_MassStasis_Right");
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
+			
+			MassStasisR.SetActive (false);
+			break;
+			
+		case "Running":
+			animation.Play("Magic_Run_End");
+			NotificationCenter.DefaultCenter.PostNotification(this, "FlagRunEnd");
+			Debug.Log("ViklRun");
+			runFlagR=0;
+			break;
+		case "Jumping":
+			NotificationCenter.DefaultCenter.PostNotification(this, "FlagJumpingEnd");
+			JumpFlag=0;
+			break;
+		case "Shield":
+			animation.Play("Magic_Shield_End");
+			Shield1.SetActive (false);
+			Debug.Log("ViklShit");
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
+			break;
+		case "Invise":
+			NotificationCenter.DefaultCenter.PostNotification (this, "NormMaterial");
+			NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
+			Debug.Log("ViklInvise");
+			break;
+		}
+		FlagR=0;
+	}
+
 	// Update is called once per frame
 	void Update () {
 	
@@ -104,154 +263,30 @@ public class AnimController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetAxis ("MagicAttack1")>0&&FlagL==0 ) {
-			NotificationCenter.DefaultCenter.PostNotification(this, "LeftArmActive");
-			switch (LArm)
-			{
-			case "Lball":
-				animation.Play("Magic_Attack_Left");
-				break;
-			case "LMass":
-				animation.Play("Magic_Begin_MassStasis_Left");
-				
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
-				break;
-			case "Invise":
-				animation.Play("Magic_Invisible");
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseMaterial");
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
-				break;
-			case "Running":
-				animation.Play("Magic_Run_Begin");
-				NotificationCenter.DefaultCenter.PostNotification(this, "FlagRunBegin");
-				break;
-			case "Jumping":
-				if (ManaCol > 5) {
-				NotificationCenter.DefaultCenter.PostNotification(this, "FlagJumpingBegin");
-				JumpFlag=1;
-				}
-			else
-			{
-				NotificationCenter.DefaultCenter.PostNotification(this, "FlagJumpingEnd");
-			}
-				break;
-			case "Shield":
-				animation.Play("Magic_Shield_Begin");
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
-				break;
-			}
-			FlagL=1;
+		if (Input.GetAxis ("MagicAttack1")>0&&FlagL==0&&ManaCol>0 ) {
+
+			LeftActive();
 		}
 		if (Input.GetAxis ("MagicAttack2")<0&&FlagR==0 ) {
-			NotificationCenter.DefaultCenter.PostNotification(this, "RightArmActive");
-			Debug.Log("BeginR");
-			switch (RArm)
-			{
-			case "Rball":
-				animation.Play("Magic_Attack_Right");
-				break;
-			case "RMass":
-				animation.Play("Magic_Begin_MassStasis_Right");
-				
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
-				break;
-			case "Invise":
-				animation.Play("Magic_Invisible");
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseMaterial");
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
 
-				break;
-			case "Running":
-				animation.Play("Magic_Run_Begin");	
-				if (ManaCol>0)
-				{
-				NotificationCenter.DefaultCenter.PostNotification(this, "FlagRunBegin");
-					
-					runFlagR=1;
-				}
-				else
-				{
-					NotificationCenter.DefaultCenter.PostNotification(this, "FlagRunEnd");
-				}
-				break;
-			case "Jumping":
-				NotificationCenter.DefaultCenter.PostNotification(this, "FlagJumpingBegin");
-				JumpFlag=1;
-				break;
-			case "Shield":
-				animation.Play("Magic_Shield_Begin");
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");				
-				break;
-			}
-			FlagR=1;
+			RightActive();
 		}
 
 		if (Input.GetAxis ("MagicAttack1") == 0&&FlagL==1) {
-			switch (LArm)
-			{
-			case "LMass":
-				animation.Play("Magic_End_MassStasis_Left");
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
-				break;
-				
-			case "Running":
-				animation.Play("Magic_Run_End");
-				NotificationCenter.DefaultCenter.PostNotification(this, "FlagRunEnd");
-				runFlagR=0;
-				break;
-			case "Jumping":
-				NotificationCenter.DefaultCenter.PostNotification(this, "FlagJumpingEnd");
-				JumpFlag=0;
-				break;
-			case "Shield":
-				animation.Play("Magic_Shield_End");
-				Shield1.SetActive (false);
-				
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
-				break;
-			case "Invise":
-				NotificationCenter.DefaultCenter.PostNotification (this, "NormMaterial");
-				
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
-				MassStasisL.SetActive (false);
-				break;
-			}
-			FlagL=0;
+			LeftNotActive();
 
 			}
 		if (Input.GetAxis ("MagicAttack2") == 0&&FlagR==1) {
-			switch (RArm)
-			{
-				
-			case "RMass":
-				animation.Play("Magic_End_MassStasis_Right");
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
-				
-				MassStasisR.SetActive (false);
-				break;
-				
-			case "Running":
-				animation.Play("Magic_Run_End");
-				NotificationCenter.DefaultCenter.PostNotification(this, "FlagRunEnd");
-				runFlagR=0;
-				break;
-			case "Jumping":
-				NotificationCenter.DefaultCenter.PostNotification(this, "FlagJumpingEnd");
-				JumpFlag=0;
-				break;
-			case "Shield":
-				animation.Play("Magic_Shield_End");
-				Shield1.SetActive (false);
-				
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
-				break;
-			case "Invise":
-				NotificationCenter.DefaultCenter.PostNotification (this, "NormMaterial");
-				NotificationCenter.DefaultCenter.PostNotification (this, "InviseNotEnebled");
-				
-				break;
-			}
-			FlagR=0;
+			RightNotActive();
+		}
+
+		if(ManaCol==0&&FlagL==0)
+		{
+			LeftNotActive();
+		}
+		if(ManaCol==0&&FlagR==0)
+		{
+			RightNotActive();
 		}
 		if (Input.GetButtonDown("Jump")&&JumpFlag==1){
 
@@ -265,44 +300,6 @@ public class AnimController : MonoBehaviour {
 			}
 			
 		}
-	/*	if (Input.GetButtonDown("MagicAttack1")&&!Input.GetButtonDown("MagicAttack2")){
-			Debug.Log(LArm);
 
-		}
-		if (Input.GetButtonDown("MagicAttack2")&&!Input.GetButtonDown("MagicAttack1")){
-			Debug.Log(RArm);
-
-		}
-		if (Input.GetButtonUp("MagicAttack1")){
-			Debug.Log(LArm);
-			switch (LArm)
-			{
-			case "LMass":
-				animation.Play("Magic_End_MassStasis_Left");
-				break;
-		
-			case "Running":
-				animation.Play("Magic_Run_End");
-				runFlagR=0;
-				break;
-		
-			}
-		}
-		if (Input.GetButtonUp("MagicAttack2")){
-			Debug.Log(RArm);
-			switch (RArm)
-			{
-			
-			case "RMass":
-				animation.Play("Magic_End_MassStasis_Right");
-				break;
-		
-			case "Running":
-				animation.Play("Magic_Run_End");
-				runFlagR=0;
-				break;
-		
-			}
-		}*/
 	}
 }

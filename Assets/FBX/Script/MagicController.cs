@@ -59,6 +59,9 @@ public class MagicController : MonoBehaviour {
 
 	void ManaEmpty () {
 		ManaCol = 0;
+		MassiveStasisRightEnd ();
+		MassiveStasisLeftEnd ();
+		ShieldEnding ();
 	}
 	void ManaDanger() {
 		ManaCol = 4;
@@ -193,59 +196,66 @@ public class MagicController : MonoBehaviour {
 				}
 	}
 	void ShieldBegining () {
-		if (ManaCol > 0) {
+		if (ManaCol > 5) {
 			Shield1.SetActive (true);
 				}
 	}
 	void ShieldEnding () {
+		if (ManaCol < 5)
 		Shield1.SetActive (false);
 
 	}
 	void MassiveStasisLeft () {
-		if (ManaCol > 0) {
+		if (ManaCol > 5) {
 						MassStasisL.SetActive (true);
 				}
 	}
 	void MassiveStasisRight () {
-		if (ManaCol > 0) {
+		if (ManaCol > 5) {
 						MassStasisR.SetActive (true);
 				}
 	}
 	void MassiveStasisLeftEnd () {
+		if (ManaCol < 5)
 		MassStasisL.SetActive (false);
 	}
 	void MassiveStasisRightEnd () {
+		if (ManaCol < 5)
 		MassStasisR.SetActive (false);
 	}
 	void Invise () {
-		if (ManaCol > 0) {
-						if (ArmFlag == 1) {
-								switch (FlagR) {
-								case "Invise":
-										
-										break;
-								case "HP":
-										NotificationCenter.DefaultCenter.PostNotification (this, "UpHealth");
-										break;
-								case "Mana":
-										NotificationCenter.DefaultCenter.PostNotification (this, "UpMana");
-										break;
-
-								}
-						}
+		if (ManaCol > 5) {
+		if (ArmFlag == 1) {
+		switch (FlagR) {
+		case "Invise":
+		NotificationCenter.DefaultCenter.PostNotification (this, "InviseMaterial");
+		NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
+		break;
+		case "HP":
+		NotificationCenter.DefaultCenter.PostNotification (this, "UpHealth");
+		NotificationCenter.DefaultCenter.PostNotification (this, "DamageMana1");
+		break;
+		case "Mana":
+		NotificationCenter.DefaultCenter.PostNotification (this, "UpMana");
+		NotificationCenter.DefaultCenter.PostNotification (this, "DamageMana1");
+		break;
+		}
+		}
 				
-						if (ArmFlag == 0) {
-								switch (Flag) {
-								case "Invise":
-										NotificationCenter.DefaultCenter.PostNotification (this, "InviseMaterial");
-										break;
-								case "HP":
-										NotificationCenter.DefaultCenter.PostNotification (this, "UpHealth");
-										break;
-								case "Mana":
-										NotificationCenter.DefaultCenter.PostNotification (this, "UpMana");
-										break;
-			
+		if (ArmFlag == 0) {
+		switch (Flag) {
+		case "Invise":
+		NotificationCenter.DefaultCenter.PostNotification (this, "InviseMaterial");
+		NotificationCenter.DefaultCenter.PostNotification (this, "InviseEnebled");
+		break;
+		case "HP":
+		NotificationCenter.DefaultCenter.PostNotification (this, "UpHealth");
+		NotificationCenter.DefaultCenter.PostNotification (this, "DamageMana1");
+		break;
+		case "Mana":
+		NotificationCenter.DefaultCenter.PostNotification (this, "UpMana");
+		NotificationCenter.DefaultCenter.PostNotification (this, "DamageMana1");
+		break;
 								}
 						}
 				}

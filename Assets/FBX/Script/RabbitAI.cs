@@ -15,6 +15,8 @@ public class RabbitAI : MonoBehaviour {
 	
 	private Transform myTransform;  // Временная переменная для хранения ссылки на свойство transform
 
+	private int MasiveS;
+
 	public bool lifeMonster = true;
 	public int distanAttack;
 	public int distanAttack1;
@@ -23,7 +25,7 @@ public class RabbitAI : MonoBehaviour {
 	private float TimerDown; 
 	public GameObject StasMat;
 	int StasAct=0;
-	public GameObject DeathPos, rab;
+	public GameObject DeathPos, rab,MassStass,MassStass1;
 
 	public int i = 1;
 
@@ -60,7 +62,18 @@ public class RabbitAI : MonoBehaviour {
 		{
 			a="DestroyBall";
 		}
+		if (other.collider.tag=="Ice")
+		{
+			moveSpeed=2;
+			MasiveS=1;
+		}
 		
+	}
+	void OnTriggerExit(Collider other)
+	{
+		if (other.collider.tag == "Ice") {
+			moveSpeed=4;
+		}
 	}
 	void StasActTrue(){
 		StasAct=1;
@@ -186,6 +199,10 @@ public class RabbitAI : MonoBehaviour {
 				a="123";
 				StasMat.SetActive(false);
 			}
+		}
+		if (!MassStass.active&&!MassStass1.active&&MasiveS==1) {
+			moveSpeed=4;	
+			MasiveS=0;
 		}
 	}
 }

@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: ce07289b04a571a4f96931731aa89d26
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Base Human
+    100002: Base HumanHead
+    100004: Base HumanHeadBone001
+    100006: Base HumanLCalf
+    100008: Base HumanLCollarbone
+    100010: Base HumanLFinger11
+    100012: Base HumanLFinger12
+    100014: Base HumanLFinger13
+    100016: Base HumanLFinger14
+    100018: Base HumanLFinger21
+    100020: Base HumanLFinger22
+    100022: Base HumanLFinger23
+    100024: Base HumanLFinger24
+    100026: Base HumanLFinger31
+    100028: Base HumanLFinger32
+    100030: Base HumanLFinger33
+    100032: Base HumanLFinger34
+    100034: Base HumanLFoot
+    100036: Base HumanLForearm
+    100038: Base HumanLPalm
+    100040: Base HumanLPlatform
+    100042: Base HumanLThigh
+    100044: Base HumanLToe11
+    100046: Base HumanLToe12
+    100048: Base HumanLUpperarm
+    100050: Base HumanNeck
+    100052: Base HumanPelvis
+    100054: Base HumanRCalf
+    100056: Base HumanRCollarbone
+    100058: Base HumanRFinger11
+    100060: Base HumanRFinger12
+    100062: Base HumanRFinger13
+    100064: Base HumanRFinger14
+    100066: Base HumanRFinger21
+    100068: Base HumanRFinger22
+    100070: Base HumanRFinger23
+    100072: Base HumanRFinger24
+    100074: Base HumanRFinger31
+    100076: Base HumanRFinger32
+    100078: Base HumanRFinger33
+    100080: Base HumanRFinger34
+    100082: Base HumanRFoot
+    100084: Base HumanRForearm
+    100086: Base HumanRibcage
+    100088: Base HumanRPalm
+    100090: Base HumanRPlatform
+    100092: Base HumanRThigh
+    100094: Base HumanRToe11
+    100096: Base HumanRToe12
+    100098: Base HumanRUpperarm
+    100100: Base HumanSpine1
+    100102: Base HumanSpine2
+    100104: Base HumanSpine3
+    100106: //RootNode
+    100108: Group36721
+    100110: Group37151
+    100112: Group52777
+    100114: Group53864
+    400000: Base Human
+    400002: Base HumanHead
+    400004: Base HumanHeadBone001
+    400006: Base HumanLCalf
+    400008: Base HumanLCollarbone
+    400010: Base HumanLFinger11
+    400012: Base HumanLFinger12
+    400014: Base HumanLFinger13
+    400016: Base HumanLFinger14
+    400018: Base HumanLFinger21
+    400020: Base HumanLFinger22
+    400022: Base HumanLFinger23
+    400024: Base HumanLFinger24
+    400026: Base HumanLFinger31
+    400028: Base HumanLFinger32
+    400030: Base HumanLFinger33
+    400032: Base HumanLFinger34
+    400034: Base HumanLFoot
+    400036: Base HumanLForearm
+    400038: Base HumanLPalm
+    400040: Base HumanLPlatform
+    400042: Base HumanLThigh
+    400044: Base HumanLToe11
+    400046: Base HumanLToe12
+    400048: Base HumanLUpperarm
+    400050: Base HumanNeck
+    400052: Base HumanPelvis
+    400054: Base HumanRCalf
+    400056: Base HumanRCollarbone
+    400058: Base HumanRFinger11
+    400060: Base HumanRFinger12
+    400062: Base HumanRFinger13
+    400064: Base HumanRFinger14
+    400066: Base HumanRFinger21
+    400068: Base HumanRFinger22
+    400070: Base HumanRFinger23
+    400072: Base HumanRFinger24
+    400074: Base HumanRFinger31
+    400076: Base HumanRFinger32
+    400078: Base HumanRFinger33
+    400080: Base HumanRFinger34
+    400082: Base HumanRFoot
+    400084: Base HumanRForearm
+    400086: Base HumanRibcage
+    400088: Base HumanRPalm
+    400090: Base HumanRPlatform
+    400092: Base HumanRThigh
+    400094: Base HumanRToe11
+    400096: Base HumanRToe12
+    400098: Base HumanRUpperarm
+    400100: Base HumanSpine1
+    400102: Base HumanSpine2
+    400104: Base HumanSpine3
+    400106: //RootNode
+    400108: Group36721
+    400110: Group37151
+    400112: Group52777
+    400114: Group53864
+    4300000: Group36721
+    4300002: Group37151
+    4300004: Group53864
+    4300006: Group52777
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Group36721
+    13700002: Group37151
+    13700004: Group52777
+    13700006: Group53864
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

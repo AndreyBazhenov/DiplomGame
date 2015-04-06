@@ -36,6 +36,7 @@ public class BarScript : MonoBehaviour {
 
 		NotificationCenter.DefaultCenter.AddObserver(this, "DamageMana1");
 		NotificationCenter.DefaultCenter.AddObserver(this, "DamageHealth1");
+		NotificationCenter.DefaultCenter.AddObserver(this, "DamageHealth2");
 		NotificationCenter.DefaultCenter.AddObserver(this, "InviseEnebled");
 		NotificationCenter.DefaultCenter.AddObserver(this, "InviseNotEnebled");
 
@@ -72,6 +73,12 @@ public class BarScript : MonoBehaviour {
 	void DamageHealth1()
 	{
 		hpCur-=1;
+		procentHealth = hpCur / hpMax * 100;
+		widthHealth = hpCur / hpMax;
+	}
+	void DamageHealth2()
+	{
+		hpCur-=20;
 		procentHealth = hpCur / hpMax * 100;
 		widthHealth = hpCur / hpMax;
 	}
